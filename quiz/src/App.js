@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+
+import Loading from './pages/Loading';
+import Login from './pages/Login';
+
+const Container = styled.div`
+  position: relative;
+  max-width: 500px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #f4d160;
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const deplay = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // 의도적으로 3초 로딩 설정
+
+    return () => clearTimeout(deplay);
+  }, []);
+
+  return <Container>{loading ? <Loading /> : <Login />}</Container>;
 }
 
 export default App;
