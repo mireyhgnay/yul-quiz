@@ -7,6 +7,7 @@ const LoadingContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f4d160;
 `;
 
 function Loading({ loading }) {

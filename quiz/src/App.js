@@ -9,7 +9,7 @@ const Container = styled.div`
   max-width: 500px;
   height: 100vh;
   margin: 0 auto;
-  background-color: #f4d160;
+  background-color: #fff;
 `;
 
 function App() {
